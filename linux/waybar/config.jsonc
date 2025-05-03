@@ -1,0 +1,74 @@
+{
+    "layer": "top",
+    "position": "left",
+    "width": 28,
+    "spacing": 2,
+    "fixed-center": true,
+    "modules-left": [
+        "clock",
+        "custom/sep",
+        "tray"
+    ],
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+        "custom/sep",
+        "temperature",
+        "custom/sep",
+        "wireplumber"
+    ],
+    "custom/sep": {
+    //    "format": "──"
+    "format": ""
+    },
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "on-click": "activate",
+        "show-special": true,
+        "on-scroll-up": "hyprctl dispatch workspace e-1",
+        "on-scroll-down": "hyprctl dispatch workspace e+1",
+        "format-icons": {
+            "default": "",
+            "active": ""
+        }
+    },
+    "wlr/taskbar": {
+        "format": "{icon}",
+
+        "spacing": 3,
+        "on-click-middle": "close",
+        "ignore-list": [],
+        "on-click": "activate"
+    },
+    "clock": {
+        "tooltip": true,
+        "format": "{:%H\n%M}",
+        "tooltip-format": "{:%Y-%m-%d}"
+    },
+    "tray": {
+        "icon-size": 18,
+        "show-passive-items": "true"
+    },
+    "temperature": {
+        "rotate": 90,
+        "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
+        "critical-threshold": 80,
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": [
+            "",
+            "",
+            ""
+        ]
+    },
+    "wireplumber": {
+        "rotate": 90,
+        "format": "{icon}  {volume} %",
+        "format-muted": "MUTE",
+        "format-icons": [ "", "" ]
+        },
+        "scroll-step": 3,
+        "on-click": "pavucontrol",
+        "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+    }
+}

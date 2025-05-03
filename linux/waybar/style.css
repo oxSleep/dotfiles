@@ -1,0 +1,76 @@
+@define-color bg_main rgba(0, 0, 0, 0.05);
+@define-color bg_alt rgba(0, 0, 0, 0.55);
+@define-color fg_main #deeeed;
+@define-color c_lack    #708090;
+@define-color c_luster  #deeeed;
+@define-color c_orange  #ffaa88;
+@define-color c_yellow  #abab77;
+@define-color c_green   #789978;
+@define-color c_blue    #7788AA;
+@define-color c_red     #D70000;
+@define-color c_black   #000000;
+@define-color c_gray1   #080808;
+@define-color c_gray2   #191919;
+@define-color c_gray3   #2a2a2a;
+
+* {
+    border: none;
+    font-family: "Iosveka NFM";
+    font-size: 14px;
+    font-weight: 800;
+}
+window#waybar {
+    all:unset;
+    color: @fg_main;
+    background: @bg_main;
+    border-radius: 0px;
+}
+.modules-left {
+    border-radius: 0 0 8px 8px;
+    background: @bg_alt;
+    padding: 4px 0 12px;
+}
+.modules-right {
+    border-radius: 8px 8px 0px 0px;
+    background: @bg_alt;
+    padding: 12px 0;
+}
+.modules-center {
+    border-radius: 8px;
+    background: @bg_alt;
+    padding: 12px 0;
+}
+
+#custom-sep,
+#clock,
+#wireplumber,
+#tray {
+}
+#workspaces {
+}
+#workspaces button {
+    padding: 0;
+    color: @c_lack;
+}
+#workspaces button.active {
+    color: @c_orange;
+}
+#workspaces button.empty{
+    color: @c_lack;
+}
+#temperature {
+    color: @c_blue;
+}
+#clock {
+    color: @c_green;
+}
+#wireplumber {
+    color: @c_green;
+}
+#wireplumber.muted {
+    color: @c_lack;
+}
+tooltip {
+}
+tooltip * {
+}

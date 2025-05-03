@@ -1,0 +1,7 @@
+CompileFlags:
+  # Treat code as C++, use C++17 standard, enable more warnings.
+  Add: [-xc++, -std=c++20, -Wall, -Wno-missing-prototypes]
+  Diagnostics:
+    Remove: ovl_no_viable_function_call
+    ClangTidy:
+      Add: modernize*
