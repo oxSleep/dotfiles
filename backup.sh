@@ -3,8 +3,8 @@
 MODE="$1"
 
 CONFIG_DIR=${HOME}/.config
-DIRS=(foot hypr readline nvim waybar)
-FILES=(.bashrc .bash_profile)
+DIRS=(foot MangoHud hypr readline nvim waybar)
+FILES=(.bashrc .bash_profile .local/bin/fzf_cd.sh)
 
 
 case "$MODE" in
