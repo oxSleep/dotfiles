@@ -6,7 +6,6 @@ CONFIG_DIR=${HOME}/.config
 DIRS=(foot MangoHud hypr readline nvim waybar)
 FILES=(.bashrc .bash_profile .local/bin/fzf_cd.sh)
 
-
 case "$MODE" in
     backup)
         echo [Backing up dotfiles into $(pwd)]
