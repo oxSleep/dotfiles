@@ -1,18 +1,12 @@
 { inputs, config, pkgs, lib, ... }:
 
 {
+    nix.settings.use-xdg-base-directories = true;
     home.username = "oxv";
     home.homeDirectory = "/home/oxv";
     home.stateVersion = "24.11";
     home.sessionPath = [ "${config.home.homeDirectory}/.local/bin" ];
     home.preferXdgDirectories = true;
-
-    home.pointerCursor = {
-        gtk.enable = true;
-        package = pkgs.vanilla-dmz;
-        name = "Vanilla-DMZ";
-        size = 22;
-    };
     home.packages = with pkgs; [ 
         gh
         gcc
@@ -46,7 +40,6 @@
     };
 
 
-    nix.settings.use-xdg-base-directories = true;
     xdg.enable = true;
     programs.btop.enable = true;
     programs.git = {
