@@ -10,7 +10,6 @@
 	};
 
 	nix = {
-
 		settings = {
 			use-xdg-base-directories = true;
 			experimental-features = [ "nix-command" "flakes" ];
@@ -75,6 +74,5 @@
 		networkConfig.DHCP = "ipv4";
 	};
 
-	system.copySystemConfiguration = true;
 	system.stateVersion = "24.11"; # Did you read the comment?
 }

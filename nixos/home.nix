@@ -1,11 +1,6 @@
-{ config, pkgs, lib, ... }:
+{ inputs, config, pkgs, lib, ... }:
 
 {
-
-	home-manager.useUserPackages = true;
-	home-manager.useGlobalPkgs = true;
-	home-manager.backupFileExtension = "bkp";
-	home-manager.users.oxv = import ./home.nix;
     home.username = "oxv";
     home.homeDirectory = "/home/oxv";
     home.stateVersion = "24.11";
@@ -17,7 +12,7 @@
         size = 22;
     };
     home.packages = with pkgs; [ 
-    	gcc
+        gcc
         fzf 
         foot
         neovim
@@ -46,42 +41,13 @@
             name = "Adwaita";
         };
     };
-
+    programs.home-manager.enable = true;
     programs.btop.enable = true;
     programs.git = {
         enable = true;
         userName  = "oxSleep";
         userEmail = "zw7vy1@protonmail.com";
     };
-
-    home.file.".bash_profile".text = ''
-. "${config.home.homeDirectory}/.nix-profile/etc/profile.d/hm-session-vars.sh"
-[[ -f "$HOME/.bashrc" ]] && . "$HOME/.bashrc"
-	    '';
-
-    home.file.".bashrc".text = ''
-export HISTFILE="${config.xdg.stateHome}/bash/bash_history"
-export HISTSIZE=10000
-alias nrs='sudo nixos-rebuild switch'
-alias ls='ls --color=auto --group-directories-first'
-alias la='ls -la --color=auto'
-alias grep='grep --color=auto'
-alias adb='$HOME="${config.xdg.dataHome}/android" adb'
-
-PS1='[\[\e[32m\]\u\[\e[0m\]@\[\e[35m\]\h\[\e[0m\]][\[\e[38;5;69m\]\w\[\e[0m\]]\$ '
-	    '';
-
-
-    home.file."${config.xdg.configHome}/readline/inputrc".text = ''
-set completion-ignore-case on
-set mark-symlinked-directories on
-set bell-style none
-set show-all-if-ambiguous on
-
-"\C-p": history-search-backward
-"\C-n": history-search-forward
-	    '';
-
     programs.foot = {
         enable = true;
         settings = {

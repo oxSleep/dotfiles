@@ -20,7 +20,7 @@
             };
         };
         homeConfigurations = {
-            "void@oxv" = home-manager.lib.homeManagerConfiguration {
+            "oxv@void" = home-manager.lib.homeManagerConfiguration {
                 pkgs = nixpkgs.legacyPackages.x86_64-linux;
                 extraSpecialArgs = { inherit inputs outputs; };
                 modules = [./nixos/home.nix];
