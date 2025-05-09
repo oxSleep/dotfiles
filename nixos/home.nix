@@ -5,6 +5,8 @@
     home.homeDirectory = "/home/oxv";
     home.stateVersion = "24.11";
     home.sessionPath = [ "${config.home.homeDirectory}/.local/bin" ];
+    home.preferXdgDirectories = true;
+
     home.pointerCursor = {
         gtk.enable = true;
         package = pkgs.vanilla-dmz;
@@ -29,9 +31,6 @@
         pwvucontrol
     ];
 
-    nix.settings.use-xdg-base-directories = true;
-    home.preferXdgDirectories = true;
-    xdg.enable = true;
     gtk = {
         enable = true;
         gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
@@ -45,6 +44,10 @@
             name = "Adwaita";
         };
     };
+
+
+    nix.settings.use-xdg-base-directories = true;
+    xdg.enable = true;
     programs.btop.enable = true;
     programs.git = {
         enable = true;
