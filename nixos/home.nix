@@ -16,15 +16,20 @@
         gcc
         fzf 
         foot
+        neovim
         wl-clipboard
+        pcmanfm
+        nwg-look
         xdg-ninja
         wofi
         waybar
         swww
         duf
         p7zip
+        pwvucontrol
     ];
 
+    nix.settings.use-xdg-base-directories = true;
     home.preferXdgDirectories = true;
     xdg.enable = true;
     gtk = {
@@ -41,7 +46,6 @@
         };
     };
     programs.btop.enable = true;
-    #programs.bash.enable = true;
     programs.git = {
         enable = true;
         userName  = "oxSleep";

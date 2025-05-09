@@ -17,6 +17,7 @@
 
     nix = {
         settings = {
+            use-xdg-base-directories = true;
             experimental-features = [ "nix-command" "flakes" ];
         };
     };
@@ -35,9 +36,6 @@
         sessionVariables.NIX_OS_OZONE_WL = "1";
         systemPackages = with pkgs; [
                 keepassxc
-                pcmanfm
-                nwg-look
-                pwvucontrol
                 neovim
                 dnscrypt-proxy
                 wget
