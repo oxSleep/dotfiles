@@ -2,7 +2,13 @@
 {
 	imports = [ 
 		./hardware-configuration.nix
+        inputs.home-manager.nixosModules.home-manager
 	];
+
+	home-manager.useUserPackages = true;
+	home-manager.useGlobalPkgs = true;
+	home-manager.backupFileExtension = "bkp";
+	home-manager.users.oxv = import ./home.nix;
 
 	users.users.oxv= {
 		isNormalUser = true;
@@ -37,16 +43,18 @@
 		];
 	};
 
-	environment.sessionVariables.NIX_OS_OZONE_WL = "1";
-	environment.systemPackages = with pkgs; [
-		keepassxc
-			dnscrypt-proxy
-			wget
-			curl
-			brave
-			xdg-desktop-portal-gtk
-			hyprpolkitagent
-	];
+    environment = {
+        sessionVariables.NIX_OS_OZONE_WL = "1";
+        systemPackages = with pkgs; [
+            keepassxc
+                dnscrypt-proxy
+                wget
+                curl
+                brave
+                xdg-desktop-portal-gtk
+                hyprpolkitagent
+        ];
+    };
 
 	nix = {
 		optimise = {
