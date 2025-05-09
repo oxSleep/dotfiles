@@ -1,52 +1,44 @@
 { inputs, config, lib, pkgs, ... }:
 {
-	imports = [ 
-		./hardware-configuration.nix
+    imports = [ 
+        ./hardware-configuration.nix
         inputs.home-manager.nixosModules.home-manager
-	];
+    ];
 
-	home-manager.useUserPackages = true;
-	home-manager.useGlobalPkgs = true;
-	home-manager.backupFileExtension = "bkp";
-	home-manager.users.oxv = import ./home.nix;
+    home-manager.useUserPackages = true;
+    home-manager.useGlobalPkgs = true;
+    home-manager.backupFileExtension = "bkp";
+    home-manager.users.oxv = import ./home.nix;
 
-	users.users.oxv= {
-		isNormalUser = true;
-		extraGroups = [ "wheel" "audio" "video" "input" ]; # Enable ‘sudo’ for the user.
-	};
+    users.users.oxv= {
+        isNormalUser = true;
+        extraGroups = [ "wheel" "audio" "video" "input" ]; # Enable ‘sudo’ for the user.
+    };
 
-	nix = {
-		settings = {
-			use-xdg-base-directories = true;
-			experimental-features = [ "nix-command" "flakes" ];
-		};
-	};
+    nix = {
+        settings = {
+            experimental-features = [ "nix-command" "flakes" ];
+        };
+    };
 
-	nixpkgs.config.allowUnfree = true; 
-	programs.steam = {
-		enable = true;
-		remotePlay.openFirewall = false;
-		dedicatedServer.openFirewall = false;
-		localNetworkGameTransfers.openFirewall = false;
-	};
-	programs.hyprland.enable = true;
-	programs.adb.enable = true;
-
-	environment.sessionVariables = rec {
-		XDG_CACHE_HOME  = "$HOME/.cache";
-		XDG_CONFIG_HOME = "$HOME/.config";
-		XDG_DATA_HOME   = "$HOME/.local/share";
-		XDG_STATE_HOME  = "$HOME/.local/state";
-		XDG_BIN_HOME    = "$HOME/.local/bin";
-		PATH = [ 
-			"${XDG_BIN_HOME}"
-		];
-	};
+    nixpkgs.config.allowUnfree = true; 
+    programs.steam = {
+        enable = true;
+        remotePlay.openFirewall = false;
+        dedicatedServer.openFirewall = false;
+        localNetworkGameTransfers.openFirewall = false;
+    };
+    programs.hyprland.enable = true;
+    programs.adb.enable = true;
 
     environment = {
         sessionVariables.NIX_OS_OZONE_WL = "1";
         systemPackages = with pkgs; [
-            keepassxc
+                keepassxc
+                pcmanfm
+                nwg-look
+                pwvucontrol
+                neovim
                 dnscrypt-proxy
                 wget
                 curl
@@ -56,31 +48,31 @@
         ];
     };
 
-	nix = {
-		optimise = {
-			automatic = true;
-			dates = [ "weekly" ];
-		};
-		settings = {
-			auto-optimise-store = true;
-		};
-	};
+    nix = {
+        optimise = {
+            automatic = true;
+            dates = [ "weekly" ];
+        };
+        settings = {
+            auto-optimise-store = true;
+        };
+    };
 
-	services.dnscrypt-proxy2.enable = true;
-	services.pipewire = {
-		enable = true;
-		pulse.enable = true;
-	};
+    services.dnscrypt-proxy2.enable = true;
+    services.pipewire = {
+        enable = true;
+        pulse.enable = true;
+    };
 
-	time.timeZone = "Europe/Paris";
-	boot.loader.systemd-boot.enable = true;
-	boot.loader.efi.canTouchEfiVariables = true;
+    time.timeZone = "Europe/Paris";
+    boot.loader.systemd-boot.enable = true;
+    boot.loader.efi.canTouchEfiVariables = true;
 
-	networking.hostName = "void";
-	systemd.network.networks."enp8s0" = {
-		matchConfig.Name = "lan";
-		networkConfig.DHCP = "ipv4";
-	};
+    networking.hostName = "void";
+    systemd.network.networks."enp8s0" = {
+        matchConfig.Name = "lan";
+        networkConfig.DHCP = "ipv4";
+    };
 
-	system.stateVersion = "24.11"; # Did you read the comment?
+    system.stateVersion = "24.11"; # Did you read the comment?
 }

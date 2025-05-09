@@ -16,15 +16,13 @@
         gcc
         fzf 
         foot
-        neovim
         wl-clipboard
-        nwg-look
         xdg-ninja
         wofi
         waybar
         swww
+        duf
         p7zip
-        pwvucontrol
     ];
 
     home.preferXdgDirectories = true;
@@ -43,9 +41,11 @@
         };
     };
     programs.btop.enable = true;
+    #programs.bash.enable = true;
     programs.git = {
         enable = true;
         userName  = "oxSleep";
         userEmail = "zw7vy1@protonmail.com";
     };
+    systemd.user.startServices = "sd-switch";
 }
