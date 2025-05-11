@@ -1,0 +1,8 @@
+{
+  "blink.cmp": { "branch": "main", "commit": "4f38ce99a472932d5776337f08f7a8180f1f571a" },
+  "friendly-snippets": { "branch": "main", "commit": "572f5660cf05f8cd8834e096d7b4c921ba18e175" },
+  "lackluster.nvim": { "branch": "main", "commit": "d2519d14b2b6e9eef05752d5d4486ed5c48d6178" },
+  "lazy.nvim": { "branch": "main", "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a" },
+  "mini.align": { "branch": "main", "commit": "2b42ac0be7d570c2208f9e334ecef13453cd222d" },
+  "nvim-treesitter": { "branch": "master", "commit": "28d480e0624b259095e56f353ec911f9f2a0f404" }
+}
