@@ -1,181 +1,76 @@
-
-/*base background color*/
-@define-color bg_main rgba(25, 25, 25, 0.85);
-@define-color bg_main_tooltip rgba(0, 0, 0, 0.7);
-
-
-/*base background color of selections */
-@define-color bg_hover rgba(200, 200, 200, 0.3);
-/*base background color of active elements */
-@define-color bg_active rgba(100, 100, 100, 0.5);
-
-/*base border color*/
-@define-color border_main rgba(255, 255, 255, 0.2);
-
-/*text color for entries, views and content in general */
-@define-color content_main white;
-/*text color for entries that are unselected */
-@define-color content_inactive rgba(255, 255, 255, 0.25);
+@define-color bg_main rgba(0, 0, 0, 0.05);
+@define-color bg_alt rgba(0, 0, 0, 0.55);
+@define-color fg_main #deeeed;
+@define-color c_lack    #708090;
+@define-color c_luster  #deeeed;
+@define-color c_orange  #ffaa88;
+@define-color c_yellow  #abab77;
+@define-color c_green   #789978;
+@define-color c_blue    #7788AA;
+@define-color c_red     #D70000;
+@define-color c_black   #000000;
+@define-color c_gray1   #080808;
+@define-color c_gray2   #191919;
+@define-color c_gray3   #2a2a2a;
 
 * {
-    text-shadow: none;
-    box-shadow: none;
     border: none;
-    border-radius: 0;
-    font-family: "Iosevka NF", "Ubuntu";
-    font-weight: 200;
-    font-size: 12px;
+    font-family: "Iosveka NFM";
+    font-size: 14px;
+    font-weight: 800;
 }
-
 window#waybar {
-    background:  @bg_main;
-    border-top: 1px solid @border_main;
-    color: @content_main;
+    all:unset;
+    color: @fg_main;
+    background: @bg_main;
+    border-radius: 0px;
+}
+.modules-left {
+    border-radius: 0 0 8px 8px;
+    background: @bg_alt;
+    padding: 4px 0 12px;
+}
+.modules-right {
+    border-radius: 8px 8px 0px 0px;
+    background: @bg_alt;
+    padding: 12px 0;
+}
+.modules-center {
+    border-radius: 8px;
+    background: @bg_alt;
+    padding: 12px 0;
 }
 
-tooltip {
-    background: @bg_main_tooltip;
-    border-radius: 5px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: @border_main;
+#custom-sep,
+#clock,
+#wireplumber,
+#tray {
 }
-tooltip label{
-    color: @content_main;
-}
-
-#custom-os_button {
-    font-family: "CaskaydiaCove NF";
-    font-size: 24px;
-    padding-left: 12px;
-    padding-right: 20px;
-    transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-#custom-os_button:hover {
-    background:  @bg_hover;
-    color: @content_main;
-}
-
 #workspaces {
-    color: transparent;
-    margin-right: 1.5px;
-    margin-left: 1.5px;
 }
 #workspaces button {
-    padding: 3px;
-    color: @content_inactive;
-    transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+    padding: 0;
+    color: @c_lack;
 }
 #workspaces button.active {
-    color: @content_main;
-    border-bottom: 3px solid white;
+    color: @c_orange;
 }
-#workspaces button.focused {
-    color: @bg_active;
+#workspaces button.empty{
+    color: @c_lack;
 }
-#workspaces button.urgent {
-    background:  rgba(255, 200, 0, 0.35);
-    border-bottom: 3px dashed @warning_color;
-    color: @warning_color;
-}
-#workspaces button:hover {
-    background: @bg_hover;
-    color: @content_main;
-}
-
-#taskbar {
-}
-
-#taskbar button {
-    min-width: 130px;
-    border-bottom: 3px solid rgba(255, 255, 255, 0.3);
-    margin-left: 2px;
-    margin-right: 2px;
-    padding-left: 8px;
-    padding-right: 8px;
-    color: white;
-    transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-#taskbar button.active {
-    border-bottom: 3px solid white;
-    background: @bg_active;
-}
-
-#taskbar button:hover {
-    border-bottom: 3px solid white;
-    background: @bg_hover;
-    color: @content_main;
-}
-
-#cpu, #disk, #memory {
-    padding:3px;
-}
-
 #temperature {
-    color: transparent;
-    font-size: 0px;
-    transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+    color: @c_blue;
 }
-#temperature.critical {
-    padding-right: 3px;
-    color: @warning_color;
-    font-size: initial;
-    border-bottom: 3px dashed @warning_color;
-    transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-#window {
-    border-radius: 10px;
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
-#tray{
-    margin-left: 5px;
-    margin-right: 5px;
-}
-#tray > .passive {
-    border-bottom: none;
-}
-#tray > .active {
-    border-bottom: 3px solid white;
-}
-#tray > .needs-attention {
-    border-bottom: 3px solid @warning_color;
-}
-#tray > widget {
-    transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-#tray > widget:hover {
-    background: @bg_hover;
-}
-
-#pulseaudio {
-    font-family: "CaskaydiaCove NF";
-    padding-left: 3px;
-    padding-right: 3px;
-    transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-#pulseaudio:hover {
-    background: @bg_hover;
-}
-
-#network {
-    padding-left: 3px;
-    padding-right: 3px;
-}
-
-#language {
-    padding-left: 5px;
-    padding-right: 5px;
-}
-
 #clock {
-    padding-right: 5px;
-    padding-left: 5px;
-    transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+    color: @c_green;
 }
-#clock:hover {
-    background: @bg_hover;
+#wireplumber {
+    color: @c_green;
+}
+#wireplumber.muted {
+    color: @c_lack;
+}
+tooltip {
+}
+tooltip * {
 }

@@ -15,7 +15,7 @@ export INPUTRC=${HOME}/.config/readline/inputrc
 alias ls='ls --color=auto --group-directories-first'
 alias grep='grep --color=auto'
 alias la='ls -la --color=auto'
-alias adb='HOME="${XDG_DATA_HOME}"/android adb'
+alias adb='HOME="${XDG_DATA_HOME}" adb'
 
 if [ -d "$HOME/.local/bin/" ]; then
     export PATH="$HOME/.local/bin/:$PATH"

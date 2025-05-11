@@ -161,8 +161,16 @@ vim.lsp.config.clangd = {
     root_markers = { 'compile_commands.json', 'compile_flags.txt' },
     filetypes = { 'c', 'cpp' },
 }
-vim.lsp.enable({'clangd'})
+vim.lsp.config.zls = {
+    cmd = {
+        "zls"
+    },
+    root_dir = vim.fn.getcwd(),
+    root_markers = { 'zls.json', 'build.zig' },
+    filetypes = { 'zig', 'zir' },
+}
 
+vim.lsp.enable({'clangd', 'zls'})
 
 vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(ev)

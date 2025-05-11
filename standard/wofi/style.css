@@ -1,0 +1,112 @@
+@define-color c_lack    #708090;
+@define-color c_luster  #deeeed;
+@define-color c_orange  #ffaa88;
+@define-color c_yellow  #abab77;
+@define-color c_green   #789978;
+@define-color c_blue    #7788AA;
+@define-color c_red     #D70000;
+@define-color c_black   #000000;
+@define-color c_gray1   #080808;
+@define-color c_gray2   #191919;
+@define-color c_gray3   #2a2a2a;
+
+@define-color background @c_gray1;
+@define-color foreground #deeeed;
+
+* {
+    font-size: 16px;
+    outline: none;
+    text-shadow:none;
+    background-color:transparent;
+}
+
+window {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: alpha(@background,.5);
+}
+#inner-box {
+    margin: 2px;
+    padding: 5px;
+    border: none;
+}
+#outer-box {    
+    border: none;
+}
+#scroll {
+    margin: 0px;
+    padding: 30px;
+    border: none;
+}
+#input {
+    all:unset;
+    margin-left:20px;
+    margin-right:20px;
+    margin-top:20px;
+    padding: 20px;
+    outline: none;
+    color: @foreground;
+    box-shadow: 1px 1px 5px rgba(0,0,0, .5);
+    background: linear-gradient(to right, alpha(@background,.9), alpha(@background,.9)) padding-box,
+     linear-gradient(to right, @c_orange, @c_lack) border-box;
+    border-radius: 10px;
+    border: 2px solid transparent;
+}
+#input image {
+    border: none;
+    color: @red;
+    padding-right:10px;
+}
+#input * {
+    border: none;
+    outline: none;
+}
+
+#input:focus {
+    outline: none;
+    border-radius: 10px;
+    border: 1px solid;
+    border-image-slice: 1;
+    background: linear-gradient(to right, alpha(@background,.9), alpha(@background,.9)) padding-box,
+     linear-gradient(to right, @c_orange, @c_lack) border-box;
+    border-radius: 10px;
+    border: 2px solid transparent;
+}
+#text {
+    margin: 5px;
+    border: none;
+    color: @foreground;
+    outline: none;
+}
+#text {
+    margin: 5px;
+    border: none;
+    color: @foreground;
+    outline: none;
+}
+#entry {
+    border: none;
+    margin: 5px;
+    padding: 10px;
+}
+#entry arrow {
+    border: none;
+    color: @c_orange;
+
+}
+#entry:selected {
+    box-shadow: 1px 1px 5px rgba(255,255,255, .03);
+    border: none;
+    border-radius: 10px;
+    border: 2px solid;
+    border-color: @c_orange;
+    color: @foreground;
+    background-color:transparent;
+}
+#entry:selected #text {
+    color: @c_orange;
+    border-color: @c_orange;
+}
+#entry:drop(active) {
+    background-color: @c_red;
+}
